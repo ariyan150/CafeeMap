@@ -8,7 +8,7 @@ body {
     height: 90vh;
     width: 100%;
     z-index: 100;
-    flex: 5;
+    flex: 4;
 }
 header {
     width: 100%;
@@ -32,6 +32,11 @@ header {
 }
 .sidebar__header {
     font-size: 40px;
+}
+.infobar {
+    flex: 1;
+    padding: 10px;
+    background-color: rgb(39, 39, 39);
 }
 .bottons {
     margin: auto 0 20px 0;

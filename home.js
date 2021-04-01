@@ -11,6 +11,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYXJpeWFuMTUwIiwiYSI6ImNrbXprYnQ4ODBlbnMydXQ3b
         zoom: 15
     });
 
+    const content = `
+        <h1 style='color:blue;'>Hello World!</h1><h2>Hello World!</h2><h4>Hello World!</h4>
+        <style>
+            h2   {color: red;}
+        </style>
+    `
 
     fetch("data.json")
     .then(response => response.json())
@@ -19,7 +25,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYXJpeWFuMTUwIiwiYSI6ImNrbXprYnQ4ODBlbnMydXQ3b
             console.log(p.properties.color)
             var marker = new mapboxgl.Marker({ color: p.properties.color })
             .setLngLat(p.geometry.coordinates)
-            .setPopup(new mapboxgl.Popup().setHTML("<h1>Hello World!</h1>"))
+            .setPopup(new mapboxgl.Popup().setHTML(content))
             .addTo(map);
     }));
 
@@ -33,5 +39,5 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYXJpeWFuMTUwIiwiYSI6ImNrbXprYnQ4ODBlbnMydXQ3b
     }
 
 
-    map.on('click', maker)
+    // map.on('click', maker)
         
