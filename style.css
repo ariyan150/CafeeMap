@@ -1,4 +1,4 @@
-body {
+* {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
@@ -9,6 +9,11 @@ body {
     width: 100%;
     z-index: 100;
     flex: 4;
+}
+#map2 {
+    position: relative;
+    height: 300px;
+    width: 100%;
 }
 header {
     width: 100%;
@@ -36,7 +41,9 @@ header {
 .infobar {
     flex: 1;
     padding: 10px;
+    max-height: 90vh;
     background-color: rgb(39, 39, 39);
+    overflow-y: scroll;
 }
 .bottons {
     margin: auto 0 20px 0;

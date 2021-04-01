@@ -10,15 +10,24 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYXJpeWFuMTUwIiwiYSI6ImNrbXprYnQ4ODBlbnMydXQ3b
           ],
         zoom: 15
     });
+    map['doubleClickZoom'].disable();
+    
+
     // Add geolocate control to the map.
-    map.addControl(
-        new mapboxgl.GeolocateControl({
+    var geolocate = new mapboxgl.GeolocateControl({
         positionOptions: {
         enableHighAccuracy: true
         },
         trackUserLocation: true
-        })
-        );
+        });
+    map.addControl(geolocate)
+    geolocate.on('geolocate', function(e) {
+        var lon = e.coords.longitude;
+        var lat = e.coords.latitude
+        var position = [lon, lat];
+        console.log(position);
+        });
+        
 
     const content = `
         <h1 style='color:blue;'>Hello World!</h1><h2>Hello World!</h2><h4>Hello World!</h4>
@@ -38,21 +47,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYXJpeWFuMTUwIiwiYSI6ImNrbXprYnQ4ODBlbnMydXQ3b
     }));
 
 
-
-    const maker = (e) => {
-        var marker = new mapboxgl.Marker({ color: 'black' })
-        .setLngLat([e.lngLat.lng, e.lngLat.lat])
-        .setPopup(new mapboxgl.Popup().setHTML("<h1>Hello World!</h1>"))
-        .addTo(map);
-    }
-
     
-    const choose = (e) => {
-            window.alert('choose on the map');
-            map.on('click', () => console.log('selected'))
-            
-        }
-        
-
-    // map.on('click', maker)
+    
         
