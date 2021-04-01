@@ -10,6 +10,15 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYXJpeWFuMTUwIiwiYSI6ImNrbXprYnQ4ODBlbnMydXQ3b
           ],
         zoom: 15
     });
+    // Add geolocate control to the map.
+    map.addControl(
+        new mapboxgl.GeolocateControl({
+        positionOptions: {
+        enableHighAccuracy: true
+        },
+        trackUserLocation: true
+        })
+        );
 
     const content = `
         <h1 style='color:blue;'>Hello World!</h1><h2>Hello World!</h2><h4>Hello World!</h4>
@@ -22,7 +31,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYXJpeWFuMTUwIiwiYSI6ImNrbXprYnQ4ODBlbnMydXQ3b
     .then(response => response.json())
     .then(json => json.features)
     .then(list => list.map(p => {
-            console.log(p.properties.color)
             var marker = new mapboxgl.Marker({ color: p.properties.color })
             .setLngLat(p.geometry.coordinates)
             .setPopup(new mapboxgl.Popup().setHTML(content))
@@ -38,6 +46,13 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYXJpeWFuMTUwIiwiYSI6ImNrbXprYnQ4ODBlbnMydXQ3b
         .addTo(map);
     }
 
+    
+    const choose = (e) => {
+            window.alert('choose on the map');
+            map.on('click', () => console.log('selected'))
+            
+        }
+        
 
     // map.on('click', maker)
         
