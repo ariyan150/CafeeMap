@@ -36,15 +36,15 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYXJpeWFuMTUwIiwiYSI6ImNrbXprYnQ4ODBlbnMydXQ3b
         </style>
     `
 
-    fetch("data.json")
-    .then(response => response.json())
-    .then(json => json.features)
-    .then(list => list.map(p => {
-            var marker = new mapboxgl.Marker({ color: p.properties.color })
-            .setLngLat(p.geometry.coordinates)
-            .setPopup(new mapboxgl.Popup().setHTML(content))
-            .addTo(map);
-    }));
+    // fetch("data.json")
+    // .then(response => response.json())
+    // .then(json => json.features)
+    // .then(list => list.map(p => {
+    //         var marker = new mapboxgl.Marker({ color: p.properties.color })
+    //         .setLngLat(p.geometry.coordinates)
+    //         .setPopup(new mapboxgl.Popup().setHTML(content))
+    //         .addTo(map);
+    // }));
 
 
     

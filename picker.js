@@ -40,10 +40,9 @@ const location_peaker = document.querySelector('.chosen_pos')
 var currentMarkers=[];
 
 
-map2.on('dblclick', (e) => {
+map2.on('click', (e) => {
     var pos = e.lngLat
     location_peaker.innerHTML = pos
-
     // remove markers 
     if (currentMarkers!==null) {
         for (var i = currentMarkers.length - 1; i >= 0; i--) {
